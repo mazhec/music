@@ -1,32 +1,35 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <the-header />
+    <router-view class="music-content"/>
+    <song-audio />
+    <the-aside />
+    <play-bar />
+    <scroll-top />
+    <the-footer />
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import PlayBar from './components/PlayBar.vue'
+import ScrollTop from './components/ScrollTop'
+import SongAudio from './components/SongAudio.vue'
+import TheAside from './components/TheAside.vue'
+import TheFooter from './components/TheFooter'
+import TheHeader from './components/TheHeader'
+export default {
+  name: 'App',
+  components: { 
+    TheHeader, 
+    ScrollTop, 
+    TheFooter, 
+    SongAudio, 
+    PlayBar, 
+    TheAside 
+  },
 }
+</script>
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+<style lang="scss" scoped>
+@import './assets/css/app.scss';
 </style>
